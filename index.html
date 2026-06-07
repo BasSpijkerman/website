@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bas Spijkerman — Modelling Musical Instruments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --bg-card: #fbfaf6;
+    --ink: #1c1a17;
+    --ink-soft: #54504a;
+    --line: #d9d4c8;
+    --accent: #9a3b2e;
+    --accent-soft: #c8b8a0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(0,0,0,0.025) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+
+  /* ---- Header ---- */
+  header {
+    padding: 100px 0 60px;
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 26px;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .intro {
+    max-width: 560px;
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+  .intro a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ---- Projects ---- */
+  main { padding: 70px 0 40px; }
+  .section-label {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-bottom: 40px;
+  }
+
+  .project {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 28px;
+    padding: 36px 0;
+    border-top: 1px solid var(--line);
+  }
+  .project:first-of-type { border-top: none; }
+  .project-num {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    color: var(--accent-soft);
+    font-weight: 400;
+  }
+  .project h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.55rem;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .project p {
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+    max-width: 600px;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .tag {
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    padding: 4px 11px;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    background: var(--bg-card);
+    color: var(--ink-soft);
+  }
+  .links a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-soft);
+    padding-bottom: 1px;
+    font-size: 13px;
+    margin-right: 22px;
+    transition: border-color 0.2s;
+  }
+  .links a:hover { border-color: var(--accent); }
+
+  /* Optional figure slot — uncomment the <figure> in a project to use */
+  figure {
+    margin-top: 22px;
+    border: 1px solid var(--line);
+    background: var(--bg-card);
+    overflow: hidden;
+  }
+  figure img { display: block; width: 100%; height: auto; }
+  figcaption {
+    font-size: 12px;
+    color: var(--ink-soft);
+    padding: 10px 14px;
+    border-top: 1px solid var(--line);
+  }
+
+  /* ---- Footer ---- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 40px 0 80px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  footer a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+
+  @media (max-width: 600px) {
+    .project { grid-template-columns: 1fr; gap: 10px; }
+    .project-num { font-size: 1.1rem; }
+    header { padding: 64px 0 44px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="eyebrow">Bas Spijkerman · Structural &amp; Vibro-Acoustics</div>
+      <h1>Modelling the physics of <em>musical instruments</em></h1>
+      <p class="intro">
+        A collection of finite-element and modal-analysis projects exploring how
+        instruments produce, radiate, and shape sound — built mostly in COMSOL
+        Multiphysics and MATLAB. <!-- Edit this intro to taste. -->
+      </p>
+    </header>
+
+    <main>
+      <div class="section-label">Projects</div>
+
+      <!-- ============ PROJECT 1 ============ -->
+      <article class="project">
+        <div class="project-num">01</div>
+        <div>
+          <h2>The Musical Triangle — Forming Residuals &amp; Acoustic Response</h2>
+          <p>
+            A study of the steel triangle as a physical and acoustic object: simulating
+            the bending/forming process to visualise residual stresses, alongside the
+            impact mechanics and modal behaviour that govern its characteristic sound.
+          </p>
+          <div class="tags">
+            <span class="tag">COMSOL</span>
+            <span class="tag">Solid mechanics</span>
+            <span class="tag">Modal analysis</span>
+            <span class="tag">Residual stress</span>
+          </div>
+          <div class="links">
+            <a href="#">Read more</a>
+            <!-- <a href="#">GitHub</a> -->
+          </div>
+          <!-- <figure><img src="img/triangle.png" alt="Triangle stress field"><figcaption>Residual stress field after forming.</figcaption></figure> -->
+        </div>
+      </article>
+
+      <!-- ============ PROJECT 2 ============ -->
+      <article class="project">
+        <div class="project-num">02</div>
+        <div>
+          <h2>Acoustic Component Mode Synthesis</h2>
+          <p>
+            Reduced-order acoustic modelling via Component Mode Synthesis, including a
+            mode-importance criterion based on coupling to Modal Constraint Modes (MCMs)
+            for deciding which modes a reduced model must retain. Presented as a
+            conference paper.
+          </p>
+          <div class="tags">
+            <span class="tag">Acoustic FEM</span>
+            <span class="tag">CMS</span>
+            <span class="tag">Model reduction</span>
+            <span class="tag">MATLAB</span>
+          </div>
+          <div class="links">
+            <a href="https://github.com/BasSpijkerman/ISMA-conference-paper">Paper repository</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ============ PROJECT 3 ============ -->
+      <article class="project">
+        <div class="project-num">03</div>
+        <div>
+          <h2>Piezo Impact Sensing for Instrument Excitation</h2>
+          <p>
+            A low-cost piezo-disc impact sensor (Arduino Uno) for capturing the strike
+            that excites an instrument, paired with a browser-based Web Serial visualiser
+            to inspect the impulse and its frequency content in real time.
+          </p>
+          <div class="tags">
+            <span class="tag">Arduino</span>
+            <span class="tag">Piezo sensor</span>
+            <span class="tag">FFT / SPL</span>
+            <span class="tag">Web Serial</span>
+          </div>
+          <div class="links">
+            <a href="#">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ============ TEMPLATE — copy this block for a new project ============ -->
+      <!--
+      <article class="project">
+        <div class="project-num">04</div>
+        <div>
+          <h2>Project title here</h2>
+          <p>One or two sentences describing what you did and what you found.</p>
+          <div class="tags">
+            <span class="tag">Tool</span>
+            <span class="tag">Method</span>
+          </div>
+          <div class="links">
+            <a href="#">Read more</a>
+            <a href="#">GitHub</a>
+          </div>
+          <figure><img src="img/your-image.png" alt="description"><figcaption>Caption.</figcaption></figure>
+        </div>
+      </article>
+      -->
+
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Bas Spijkerman · Utrecht, NL</div>
+      <div>
+        <a href="https://github.com/BasSpijkerman">GitHub</a>
+        <!-- &nbsp;·&nbsp; <a href="mailto:you@example.com">Email</a> -->
+      </div>
+    </footer>
+
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
