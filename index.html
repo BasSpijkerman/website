@@ -25,8 +25,15 @@
     <main>
       <div class="section-label">Projects</div>
 
+      <!--
+        SHOW / HIDE A PROJECT:
+        Each project below has  data-visible="true".
+        Change it to  data-visible="false"  to hide that project from this list
+        (the page itself stays in /projects/, so you can switch it back on later).
+      -->
+
       <!-- ============ PROJECT 1 ============ -->
-      <article class="project">
+      <article class="project" data-visible="true">
         <div class="project-num">01</div>
         <div>
           <h2>The Musical Triangle — Forming Residuals &amp; Acoustic Response</h2>
@@ -48,7 +55,7 @@
       </article>
 
       <!-- ============ PROJECT 2 ============ -->
-      <article class="project">
+      <article class="project" data-visible="true">
         <div class="project-num">02</div>
         <div>
           <h2>Acoustic Component Mode Synthesis</h2>
@@ -72,7 +79,7 @@
       </article>
 
       <!-- ============ PROJECT 3 ============ -->
-      <article class="project">
+      <article class="project" data-visible="true">
         <div class="project-num">03</div>
         <div>
           <h2>Piezo Impact Sensing for Instrument Excitation</h2>
@@ -95,7 +102,7 @@
 
       <!-- ============ TEMPLATE — copy this block for a new project ============ -->
       <!--
-      <article class="project">
+      <article class="project" data-visible="true">
         <div class="project-num">04</div>
         <div>
           <h2>Project title here</h2>
@@ -123,6 +130,20 @@
     </footer>
 
   </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Hide any project marked data-visible="false", then renumber the rest 01, 02, 03…
+    let n = 0;
+    document.querySelectorAll('.project').forEach(function (el) {
+      if (el.getAttribute('data-visible') === 'false') {
+        el.remove();
+        return;
+      }
+      n += 1;
+      const num = el.querySelector('.project-num');
+      if (num) num.textContent = String(n).padStart(2, '0');
+    });
+  </script>
 </body>
 </html>
