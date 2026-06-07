@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piezo Impact Sensing — Bas Spijkerman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+  <div class="wrap">
+
+    <a class="back" href="../index.html">← All projects</a>
+
+    <div class="report-header">
+      <h1>Piezo Impact Sensing</h1>
+      <div class="report-meta">Arduino · Piezo sensor · FFT / SPL · Web Serial</div>
+    </div>
+
+    <article class="report">
+
+      <p>
+        <!-- Write your elaborate report here. -->
+        A low-cost piezo-disc impact sensor on an Arduino Uno for capturing the strike
+        that excites an instrument, with a browser-based Web Serial visualiser for the
+        impulse and its spectrum.
+      </p>
+
+      <h2>Circuit</h2>
+      <p>
+        27&nbsp;mm piezo disc, 1&nbsp;M&Omega; resistor across it, clamping diodes on A0 to
+        protect the analog input. Fill in detail and a wiring figure.
+      </p>
+
+      <h2>Firmware &amp; visualiser</h2>
+      <p>Describe the sketch and the Web Serial front end.</p>
+
+    </article>
+
+    <footer>
+      <div>© <span id="year"></span> Bas Spijkerman · Utrecht, NL</div>
+      <div><a href="../index.html">Back to portfolio</a></div>
+    </footer>
+
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

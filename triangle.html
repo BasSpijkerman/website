@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Musical Triangle — Bas Spijkerman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<!-- MathJax: write inline math as \( ... \) and display math as \[ ... \] -->
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+  <div class="wrap">
+
+    <a class="back" href="../index.html">← All projects</a>
+
+    <div class="report-header">
+      <h1>The Musical Triangle</h1>
+      <div class="report-meta">COMSOL Multiphysics · Solid mechanics · Modal analysis</div>
+    </div>
+
+    <article class="report">
+
+      <p>
+        <!-- Opening paragraph: what is this project and why. Replace freely. -->
+        The orchestral triangle is a deceptively simple object: a bent steel rod,
+        open at one corner, that rings with a bright, inharmonic spectrum. This
+        project models the instrument in two connected ways — the forming process
+        that leaves residual stress in the bar, and the modal behaviour that shapes
+        the radiated sound.
+      </p>
+
+      <h2>Motivation</h2>
+      <p>
+        Describe the open question here. For example: does the residual stress left
+        by cold-forming the corners measurably shift the modal frequencies, or is the
+        acoustic signature governed almost entirely by geometry and boundary
+        conditions?
+      </p>
+
+      <h2>Model setup</h2>
+      <p>
+        Outline the geometry, material model, mesh, and study steps. The triangle is
+        modelled as a slender steel rod of circular cross-section, bent into an open
+        equilateral form. Two physics are combined: a forming/bending step using a
+        nonlinear elastoplastic material, followed by an eigenfrequency study on the
+        pre-stressed geometry.
+      </p>
+
+      <!-- Example figure — drop your image in /img and update the src -->
+      <figure>
+        <img src="../img/triangle-stress.png" alt="Residual stress field in the bent triangle">
+        <figcaption>Fig. 1 — von Mises residual stress after forming. (Replace with your own export.)</figcaption>
+      </figure>
+
+      <h2>A bit of the theory</h2>
+      <p>
+        The eigenfrequencies follow from the generalised eigenvalue problem of the
+        discretised structure,
+      </p>
+      \[ \left( \mathbf{K} - \omega_i^2\, \mathbf{M} \right) \boldsymbol{\phi}_i = \mathbf{0}, \]
+      <p>
+        where \( \mathbf{K} \) and \( \mathbf{M} \) are the stiffness and mass matrices,
+        \( \omega_i \) the angular eigenfrequency of mode \( i \), and
+        \( \boldsymbol{\phi}_i \) the corresponding mode shape. Pre-stress enters through a
+        geometric stiffness contribution \( \mathbf{K}_\sigma(\boldsymbol{\sigma}_0) \) that adds to
+        \( \mathbf{K} \), so the residual field \( \boldsymbol{\sigma}_0 \) perturbs the spectrum:
+      </p>
+      \[ \left( \mathbf{K} + \mathbf{K}_\sigma(\boldsymbol{\sigma}_0) - \omega_i^2\, \mathbf{M} \right) \boldsymbol{\phi}_i = \mathbf{0}. \]
+
+      <h2>Results</h2>
+      <p>
+        Summarise what you found — frequency shifts, mode shapes, comparison to
+        measurement. Use a figure or short list of the first few modal frequencies.
+      </p>
+
+      <h2>Notes &amp; next steps</h2>
+      <p>
+        Anything still open, and links out. You can point to a repository, a dataset,
+        or the related conference work here.
+      </p>
+
+    </article>
+
+    <footer>
+      <div>© <span id="year"></span> Bas Spijkerman · Utrecht, NL</div>
+      <div><a href="../index.html">Back to portfolio</a></div>
+    </footer>
+
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
